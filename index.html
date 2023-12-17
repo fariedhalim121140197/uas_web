@@ -1,22 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bagian 1</title>
 </head>
 <body>
-    <div class="header">
-        <p>lolz</p>
+    <div class="screen">
+        <div class="header">
+            <!--
+            <img src="Logo_ITERA.png" width="70px" height="70px" class="photo" />
+            -->
+            <p>Registrasi Member</p>
+            <br>
+        </div>
+    
+        <div class="body">
+            <div class="post">
+                <div class="postxt">
+                    <h2>Formulir Pendaftaran Member</h2>
+                    <form class="formulir" id="inForm">
+                        <div class="row">
+                            <div class="column">
+                                <div class="ic">
+                                    <label for="nama">Nama</label> <br>
+                                    <input id="nama" class="is" type="fullname" name="nama" />
+                                </div>
+                                <div class="ic">
+                                    <label for="tglLahir">Tanggal Lahir</label> <br>
+                                    <input id="tglLahir" class="is1" type="date" name="tglLahir" />
+                                </div>
+                                <div class="ic">
+                                    <label for="goldar">Golongan Darah:</label><br>
+                                    <select id="goldar" name="goldar" class="is2">
+                                        <option value=""></option>                                        
+                                        <option value="a">A</option>
+                                        <option value="b">B</option>
+                                        <option value="ab">AB</option>
+                                        <option value="o">O</option>
+                                    </select>
+                                </div>
+                                <div class="ic">
+                                    <label for="agama">Agama:</label><br>
+                                    <select id="agama" name="agama" class="is2">
+                                        <option value=""></option>                                        
+                                        <option value="a">Islam</option>
+                                        <option value="b">Kristem</option>
+                                        <option value="ab">Hindu</option>
+                                        <option value="o">Buddha</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="ic">
+                                    <label for="tmpLahir">Tempat Lahir</label> <br>
+                                    <input id="tmpLahir" class="is" type="text" name="tmpLahir" />
+                                </div>
+                                <div class="ic">
+                                    <label for="jk">Jenis Kelamin</label> <br>
+                                    <input type="radio" id="l" name="jk" value="Laki-Laki">
+                                    <label for="l">Laki-Laki</label><br>
+                                    <input type="radio" id="p" name="jk" value="Perempuan">
+                                    <label for="p">Perempuan</label><br>
+                                </div>
+                                <div class="ic">
+                                    <label for="alamat">Alamat</label> <br>
+                                    <input id="alamat" class="is" type="text" name="alamat"/>
+                                </div>
+                                <div class="ic">
+                                    <p style="text-align: right;">
+                                        <input type="submit" class="btn1" value="Submit" >
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="postxt">
+                    <h2>Isi Input Form</h2>
+                    <div class="post1">
+                        <table id="dataTable" border="1">
+                            <thead>
+                                <tr>
+                                    <th>Nama</th>
+                                    <th>Tempat Lahir</th>
+                                    <th>Tanggal Lahir</th>
+                                    <th>Jenis Kelamin</th>
+                                    <th>Golongan Darah</th>
+                                    <th>Alamat</th>
+                                    <th>Agama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Tempat data tampil -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="text-align: right; margin-right: 5%;">
+                        <input type="submit" id="delbtn" class="btn1" value="Hapus">
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="batas"></div>
+        
+        <div class="footer">
+            <p>@2023 121140197</p>
+        </div>
     </div>
-    <div class="post">
-        <form action="" method="POST">
-            <input type="text" name="nama" placeholder="Nama..."/>
-            <input type="text" name="nama" placeholder="Nama..."/>
-            <input type="text" name="nama" placeholder="Nama..."/>
-            <input type="text" name="nama" placeholder="Nama..."/>
-            <input type="submit" name="submit"/>
-        </form>
-    </div>
+    <script src="script.js"></script>
 </body>
 </html>
