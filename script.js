@@ -1,18 +1,22 @@
 document.addEventListener('DOMContentLoaded', function () {
+    //deklarasi dari file html/php
     const form = document.getElementById('inForm');
-    const dataTable = document.getElementById('dataTable');
+    const table = document.getElementById('table');
     const del = document.getElementById('delbtn');
 
+    //fungsi event tombol submit
     form.addEventListener('submit', function (event) {
         event.preventDefault();
-        handleFormSubmit();
+        validasi();
     });
 
+    //fungsi event tombol hapus
     del.addEventListener('click', function (event) {
         delInput(event.target);
     });
 
-    function handleFormSubmit() {
+    //fungsi validasi input user
+    function validasi() {
         const nama = document.getElementById('nama').value;
         const tmpLahir = document.getElementById('tmpLahir').value;
         const tglLahir = document.getElementById('tglLahir').value;
@@ -22,45 +26,50 @@ document.addEventListener('DOMContentLoaded', function () {
         const agama = document.getElementById('agama').value;
 
         if (nama && tmpLahir && tglLahir && jk && goldar && alamat && agama) {
-            // Kirim data ke server (dalam contoh ini, hanya menambahkannya ke tabel)
-            addToDataTable(nama, tmpLahir, tglLahir, jk.value, goldar, alamat, agama);
+            // Kirim input user ke server
+            tambahIsi(nama, tmpLahir, tglLahir, jk.value, goldar, alamat, agama);
             form.reset();
         } else {
             alert('Masih Ada Atribut Form Yang Kosong!');
         }
     }
 
-    function delInput(){
-        var table = document.getElementById("dataTable");
-        var rowCount = table.rows.length;
-        for (var i = 1; i < rowCount; i++) {
-            var row = table.rows[i];
-            var cellCount = row.cells.length;
+    //fungsi tambah isi tabel
+    function tambahIsi(nama, tmpLahir, tglLahir, jk, goldar, alamat, agama) {
+        document.cookie="input_nama="+nama;
+        document.cookie="input_tmpLahir="+tmpLahir;
+        document.cookie="input_tglLahir="+tglLahir;
+        document.cookie="input_jk="+jk;
+        document.cookie="input_goldar="+goldar;
+        document.cookie="input_alamat="+alamat;
+        document.cookie="input_agama="+agama;
 
-            for (var j = 0; j < cellCount; j++) {
-              var cell = row.cells[j];
-              cell.innerHTML = "";
-            }
-            table.deleteRow(i);
-          }
+        const barisBaru = table.insertRow(-1);
+        const sel1 = barisBaru.insertCell(0);
+        const sel2 = barisBaru.insertCell(1);
+        const sel3 = barisBaru.insertCell(2);
+        const sel4 = barisBaru.insertCell(3);
+        const sel5 = barisBaru.insertCell(4);
+        const sel6 = barisBaru.insertCell(5);
+        const sel7 = barisBaru.insertCell(6);
+
+        sel1.textContent = nama;
+        sel2.textContent = tmpLahir;
+        sel3.textContent = tglLahir;
+        sel4.textContent = jk;
+        sel5.textContent = goldar;
+        sel6.textContent = alamat;
+        sel7.textContent = agama;
+
+
     }
 
-    function addToDataTable(nama, tmpLahir, tglLahir, jk, goldar, alamat, agama) {
-        const newRow = dataTable.insertRow(-1);
-        const cell1 = newRow.insertCell(0);
-        const cell2 = newRow.insertCell(1);
-        const cell3 = newRow.insertCell(2);
-        const cell4 = newRow.insertCell(3);
-        const cell5 = newRow.insertCell(4);
-        const cell6 = newRow.insertCell(5);
-        const cell7 = newRow.insertCell(6);
-
-        cell1.textContent = nama;
-        cell2.textContent = tmpLahir;
-        cell3.textContent = tglLahir;
-        cell4.textContent = jk;
-        cell5.textContent = goldar;
-        cell6.textContent = alamat;
-        cell7.textContent = agama;
+    //fungsi hapus isi tabel
+    function delInput() {
+        var table = document.getElementById("table");
+        var jumlahBaris = table.rows.length;
+        for (var i = jumlahBaris - 1; i > 0; i--) {
+            table.deleteRow(i);
+        }
     }
 });
